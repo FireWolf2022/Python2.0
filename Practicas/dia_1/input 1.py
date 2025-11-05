@@ -1,0 +1,1 @@
+print(input("Que estas estudiando"))

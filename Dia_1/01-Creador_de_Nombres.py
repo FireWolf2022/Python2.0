@@ -1,0 +1,1 @@
+print("El nombre de la cerveza es : \n" + input("Primer nombre de la cerveza: ") +" " + input("Segundo nombre de la cerveza: "))

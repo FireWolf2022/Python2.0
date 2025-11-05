@@ -1,0 +1,1 @@
+print('Estudiar con "Python Total" es súper divertido')
