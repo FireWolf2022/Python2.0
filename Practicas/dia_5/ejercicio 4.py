@@ -78,27 +78,43 @@ print(lista)
 """
 
 
+#Ya ésta es la verdadera :)
+
+def primos(n):
+    lista = [True] * (n+1)
+    lista[0] = lista[1] = False
+    for p in range(2, int(n**0.5)+1):
+        for m in range(p*p, n+1, p):
+            lista[m] = False
+    lista_primos = [i for i in range(n+1) if lista[i]]
+    print(lista_primos)
+    return len(lista_primos)
+
+print(primos(30))
+
+#Fede
+def contar_primos(n):
+    cousin = [2]
+    iteracion = 3
+
+    if n < 2:
+        return 0
+
+    while iteracion <= n:
+        for i in range(3,iteracion,2):
+            if iteracion % i == 0:
+                iteracion +=2
+                break
+        else:
+            cousin.append(iteracion)
+            iteracion +=2
+
+    print(cousin)
+    return len(cousin)
+
+print(contar_primos(50))
 
 
 
-
-
-
-
-
-
-
-
-
-n = int(input("Hola: "))
-for num in range(3, n+1, 2):
-    primo = True
-    for i in range(3, int(n**0.5)+1, 2):
-        if num % i == 0:
-            primo=False
-            break
-
-    if primo:
-        print(f"El numero {num} es primo")
 
 

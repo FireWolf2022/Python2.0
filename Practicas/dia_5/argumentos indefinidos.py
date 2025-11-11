@@ -12,7 +12,6 @@ def potencia(base, *exp):
 print(suma(4,5,6,45,-34,7))
 
 print(potencia(2, 2, 2, 2, 5))
-print("Probando desde PyCharm por segunda vez")
 
 def new(*cositas):
     for i in cositas:
