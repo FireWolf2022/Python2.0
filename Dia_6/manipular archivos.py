@@ -1,6 +1,6 @@
 archivo = open("archivo.txt")
-first = archivo.read()
-print(first)
+first = archivo.readlines()
+print(first[1])
 
 
 
