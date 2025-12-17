@@ -97,7 +97,7 @@ class Cliente:
         input()
     
     def transferir(self):
-        print(f"Bien {self.nombre}, a coninuacion se le mostraran las cuentas disponibles para la transferencia:")
+        print(f"Bien {self.nombre}, a continuación se le mostraran las cuentas disponibles para la transferencia:")
         for i in cuentas.keys():
             print(f"# Cuentas: {i}, Propietario: {cuentas[i].nombre} {cuentas[i].apellido}")
         print(f"Ingrese 000 para realizar una donacion".center(60, "-"))
