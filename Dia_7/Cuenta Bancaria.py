@@ -33,8 +33,8 @@ class Cliente:
         while True:
             try:
                 op = int(input('Que desea hacer: '))
-            except TypeError:
-                print('Ha currido un error, intentelo de nuevo')
+            except ValueError:
+                print('Ha ocurrido un error, intentelo de nuevo')
             match op:
                 case 1:
                     self.info()
@@ -76,8 +76,8 @@ class Cliente:
                 print('Ha ocurrido un error, el deposito debe ser mayor a 0')
             if self.vip:
                 vips[self.num].append(f"El usuario ha realizado un depostio de {deposito}. Balance actual: {cuentas[self.num].balance}")
-        except TypeError:
-            print('La sifra solo debe contener caracteres numericos')
+        except ValueError:
+            print('La cifra solo debe contener caracteres numericos')
         input()
                       
     def retirar(self):
@@ -93,7 +93,7 @@ class Cliente:
             if self.vip:
                 vips[self.num].append(f'El usuario ha retirado ${retiro}.Balance de la cuenta {cuentas[self.num].balance}')
 
-        except TypeError:
+        except ValueError:
             print('La sifra solo debe contener caracteres numericos')
         input()
     
@@ -101,12 +101,12 @@ class Cliente:
         print(f"Bien {self.nombre}, a coninuacion se le mostraran las cuentas disponibles para la transferencia:")
         for i in cuentas.keys():
             print(f"# Cuentas: {i}, Propietario: {cuentas[i].nombre} {cuentas[i].apellido}")
-        print(f"Ingrese 11111 para realizar una donacion".center(60, "-"))
+        print(f"Ingrese 000 para realizar una donacion".center(60, "-"))
         try:
             a = int(input("Ingrese el # de cuenta a la que desea realizar la transferencia: "))
             b = int(input(f"Ingrese la cantidad que desea transferir, dispone de {self.balance}: "))
             if b <= self.balance:
-                if a == 11111:
+                if a == 000:
                     if not self.vip:
                         print(f"Muchas gracias {self.nombre}, usted a decidido realizar una donacion :)")
                         cuentas['admin'].balance += b
@@ -129,7 +129,7 @@ class Cliente:
                     print("Cuenta no encontrada")
             else:
                 print(f"No puede transferir un monto mayor del que dispone T:{b}, M:{self.balance}")
-        except TypeError:
+        except ValueError:
             print("Error al intentar identificar el numero de cuenta")
         input()
 
@@ -177,7 +177,7 @@ class Cliente:
     def info_admin():
         for client in cuentas.keys():
                     if client != 'admin':
-                        print(f'# Cuenta: {client}, {cuentas[client].nombre} {cuentas[client].apellido}, {cuentas[client].balance}, {cuentas[client].password}')
+                        print(f'# Cuenta: {client}, {cuentas[client].nombre} {cuentas[client].apellido}, {cuentas[client].balance}')
                  
 #Pa saber si tiene una cuenta o no, si no la tiene se le crea una, si ya tiene se va al logueo
 def tiene_cuenta():
@@ -191,7 +191,7 @@ def tiene_cuenta():
         print('A continuacion ingrese los datos solicitados para iniciar secion')
         dato1 = input('Por favor, ingrese su numero de cuenta: ')
         if dato1 == 'admin':
-            if input('Contraseña ??: ') == '1234':
+            if input('Contraseña ??: ') == 'lp2006':
                 cuentas['admin'].admin()
         
         elif int(dato1) in cuentas.keys():
