@@ -49,7 +49,6 @@ class Cliente:
                         self.historial()
                     else:
                         print('Esta opcion solo esta disponible para miembros VIP')
-                        self.menu_acciones()
                         input()
                 case 6:
                     tiene_cuenta()
@@ -94,7 +93,7 @@ class Cliente:
                 vips[self.num].append(f'El usuario ha retirado ${retiro}.Balance de la cuenta {cuentas[self.num].balance}')
 
         except ValueError:
-            print('La sifra solo debe contener caracteres numericos')
+            print('La cifra solo debe contener caracteres numericos')
         input()
     
     def transferir(self):
@@ -120,13 +119,13 @@ class Cliente:
                         cuentas['admin'].balance += b
                         self.balance -= b
 
-                elif a in cuentas.keys():
-                    cuentas[a].balance += b
-                    self.balance -= b
+
+            elif a in cuentas.keys():
+                cuentas[a].balance += b
+                self.balance -= b
+                if self.vip:
                     vips[self.num].append(f"El usuario ha realizado una transferencia de ${b} al usuario {cuentas[a].nombre} {cuentas[a].apellido} #{cuentas[a].num}")
-                    print(f"Transferencia realizada con exito, balance actual: {self.balance}, balance de cuenta beneficiada: {cuentas[a].balance}")
-                else:
-                    print("Cuenta no encontrada")
+                print(f"Transferencia realizada con exito, balance actual: {self.balance}, balance de cuenta beneficiada: {cuentas[a].balance}")
             else:
                 print(f"No puede transferir un monto mayor del que dispone T:{b}, M:{self.balance}")
         except ValueError:
@@ -181,7 +180,7 @@ class Cliente:
                  
 #Pa saber si tiene una cuenta o no, si no la tiene se le crea una, si ya tiene se va al logueo
 def tiene_cuenta():
-    resp = 'Mamawebo'
+    resp = ''
     while resp not in ["s", "n", "salir"]:
         resp = input('Ya tiene una cuenta?\nSi(s) o No(n):').lower()
         
