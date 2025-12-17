@@ -125,4 +125,3 @@ def inicializar_banco():
         'admin'
     )
     print('Banco inicializado correctamente')
-    
