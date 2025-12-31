@@ -28,9 +28,8 @@ def suma_resta(a,b,op):
             continue
         nombres.add(name)
         break
-        
+
     matrices[name] = matris_paso
-    
     mostrar_matrices()
     input(enter)
 
