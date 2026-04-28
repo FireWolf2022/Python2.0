@@ -8,6 +8,7 @@ def create():
             num = int(input('Cuantas matrices vas a crear: '))
             if num <=0:
                 print(f"Como tu vas a crear {num} matrices asere, ponte pa esto")
+                if len(matrices.keys()) <= 0:continue
             break
         except:
             print(random_error)
@@ -32,12 +33,15 @@ def create():
             filas = []
         
         while True:
-            n = input(f'Ingrese el nombre de la matriz {i+1}: ')
+            n = input(f'Ingrese el nombre de la matriz {i+1}: ').upper()
             if not n.isalpha():
                 print('Los nombres deben ser alfabeticos')
                 continue
             if n in nombres:
                 print(duplicated_name)
+                continue
+            if len(n) > 1:
+                print("El nombre debe ser (solo) una letra en mayuscula")
                 continue
             nombres.add(n)
             break
